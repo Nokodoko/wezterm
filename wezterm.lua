@@ -4,7 +4,7 @@ if not option_status_ok then
 end
 
 --OPTIONS--
-o.opacity(0.9)
+o.opacity(0.8)
 o.inactive_pane_hsb(0.9, 0.8)
 o.tab_bar(true)
 o.font({
