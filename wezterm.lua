@@ -1,26 +1,16 @@
-local wezterm = require('wezterm')
+local option_status_ok, o = pcall(require, "options")
+if not option_status_ok then
+    return
+end
 
-local config = {}
-
-
-config.font = wezterm.font_with_fallback {
+--OPTIONS--
+o.opacity(0.9)
+o.inactive_pane_hsb(0.9, 0.8)
+o.tab_bar(true)
+o.font({
     'VictorMono Nerd Font',
     'Symbol Nerd Font'
-}
-config.window_background_opacity = 0.7
-config.window_decorations = "RESIZE"
+})
+o.tab_bar_style()
 
-config.inactive_pane_hsb = {
-    saturation = 0.9,
-    brightness = 0.8,
-}
-
---IF YOU EVER WANT A DIFFERENT BACKGROUND IN YOUR TERMINAL
---config.window_background_image = 'path/to/image'
---config_widow_background_image = {
---    brightness = 0.3,
---    hue = 1.0,
---    saturation = 1.0,
---}
-
-return config
+return o.config
