@@ -59,17 +59,17 @@ o.config_colors = function (bg, fg, cbg, cfg, sbg, sfg, sbt, splt, cmab, cmaf, c
             'aqua',
             'white',
         },
-    indexed = { [136] = '#af8700' },
-    compose_cursor = 'orange',
-    copy_mode_active_highlight_bg = { Color = cmab },
-    copy_mode_active_highlight_fg = { AnsiColor = cmaf },
-    copy_mode_inactive_highlight_bg = { Color = cmib },
-    copy_mode_inactive_highlight_fg = { AnsiColor = cmif },
+        indexed = { [136] = '#af8700' },
+        compose_cursor = 'orange',
+        copy_mode_active_highlight_bg = { Color = cmab },
+        copy_mode_active_highlight_fg = { AnsiColor = cmaf },
+        copy_mode_inactive_highlight_bg = { Color = cmib },
+        copy_mode_inactive_highlight_fg = { AnsiColor = cmif },
 
-    quick_select_label_bg = { Color = qslb },
-    quick_select_label_fg = { Color = qslf },
-    quick_select_match_bg = { AnsiColor = qsmb },
-    quick_select_match_fg = { Color = qsmf },
+        quick_select_label_bg = { Color = qslb },
+        quick_select_label_fg = { Color = qslf },
+        quick_select_match_bg = { AnsiColor = qsmb },
+        quick_select_match_fg = { Color = qsmf },
     }
 end
 
