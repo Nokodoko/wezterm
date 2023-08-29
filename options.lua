@@ -14,6 +14,10 @@ o.tab_bar = function (bool)
     o.config.enable_tab_bar = bool
 end
 
+o.tab_bar_bottom = function (bool)
+    o.config.tab_bar_at_bottom = bool
+end
+
 o.inactive_pane_hsb = function (float1, float2)
     o.config.inactive_pane_hsb = {
         saturation = float1,
@@ -29,7 +33,7 @@ o.color_scheme = function (color_scheme)
    o.config.color_scheme = color_scheme
 end
 
-o.config_colors = function (bg, fg, cbg, cfg, sbg, sfg, sbt, splt, cmab, cmaf, cmib, cmif, qslb, qslf, qsmb, qsmf)
+o.config_colors = function (bg, fg, cbg, cfg, sbg, sfg, sbt, splt, cmab, cmaf, cmib, cmif, qslb, qslf, qsmb, qsmf, crs)
     o.config.colors = {
         foreground = fg,
         background = bg,
@@ -59,8 +63,7 @@ o.config_colors = function (bg, fg, cbg, cfg, sbg, sfg, sbt, splt, cmab, cmaf, c
             'aqua',
             'white',
         },
-        indexed = { [136] = '#af8700' },
-        compose_cursor = 'orange',
+        compose_cursor = crs,
         copy_mode_active_highlight_bg = { Color = cmab },
         copy_mode_active_highlight_fg = { AnsiColor = cmaf },
         copy_mode_inactive_highlight_bg = { Color = cmib },
