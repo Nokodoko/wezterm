@@ -1,3 +1,6 @@
+-- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
+
+--REQUIREMENTS {{{
 local option_status_ok, o = pcall(require, "options")
 if not option_status_ok then
     return
@@ -7,21 +10,35 @@ local keys_ok, k = pcall(require, "keys")
 if not keys_ok then
     return
 end
+--}}}
 
---OPTIONS--
-o.opacity(0.95)
+--OPACITY {{{
+o.opacity(0.9)
+--}}}
 
---SATURATION, BRIGHTNESS
+--SATURATION, BRIGHTNESS {{{
 o.inactive_pane_hsb(0.9, 0.8)
+--}}}
 
---DISPLAY TAB BAR
+--TAB BAR {{{
+--DISPLAY
 o.tab_bar(true)
 o.tab_bar_bottom(false)
 
---COLOR SCHEME
-o.color_scheme('Tokyo Night')
+--TAB BAR STYLE 
+o.tab_bar_style({
+    --tab bar background
+    '#0b0022',
+    --tab bar foreground
+    '#2b2042'
+})
+--}}}
 
---CUSTOM COLOR SCHEME
+--COLOR SCHEME {{{
+o.color_scheme('nil')
+--}}}
+
+--CUSTOM COLOR SCHEME {{{
 --o.config_colors(
 ----FOREGROUND
 ----BACKGROUND
@@ -41,33 +58,32 @@ o.color_scheme('Tokyo Night')
 ----QUICK_SELECT_MATCH_BG
 ----QUICK_SELECT_MATCH_FG
 --)
+--}}}
 
---FONT, FONT-FALLBACK
+--FONT, FONT-FALLBACK{{{
 o.font({
     'VictorMono Nerd Font',
     'Symbol Nerd Font'
 })
+--}}}
 
+-- DEFAULT WORKSPACE {{{
 o.default_workspace("home")
+--}}}
 
---SCROLLBACK
+--SCROLLBACK {{{
 o.scrollback(3000)
+--}}}
 
-o.tab_bar_style({
-    --tab bar background
-    '#0b0022',
-    --tab bar foreground
-    '#2b2042'
-})
-
---KEYS--
-k.leader(
---KEY
-'space',
---MODS
-'ctrl',
---TIMEOUT_MILLISECONDS
-1000
-)
+--KEYS-- {{{
+--k.leader(
+----KEY
+--'space',
+----MODS
+--'ctrl',
+----TIMEOUT_MILLISECONDS
+--1000
+--)
 
 return o.config
+--}}}

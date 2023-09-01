@@ -89,10 +89,10 @@ o.tab_bar_style = function (tbsb, tbsf)
     o.config.use_fancy_tab_bar = false
 --   local left_arrow =  wez.nerdfonts.pl_right_hard_divider
 --   local right_arrow =  wez.nerdfonts.pl_left_hard_divider
-    o.config.tab_bar_style = {
-        background = tbsb,
-        foreground = tbsf
-    }
+--    o.config.tab_bar_style = {
+--        background = tbsb,
+--        foreground = tbsf
+--    }
 --        new_tab_left = {
 --            {Background = '#000000'},
 --            --{Background = '#0b0022'},
