@@ -80,8 +80,8 @@ o.default_workspace = function (workspace)
    o.config.default_workspace = workspace
 end
 
-o.font = function (font)
-   o.config.font = wez.font_with_fallback(font)
+o.font = function (font, fallback)
+   o.config.font = wez.font_with_fallback(font, fallback)
 end
 
 o.tab_bar_style = function (tbsb, tbsf)
