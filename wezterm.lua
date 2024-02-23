@@ -3,17 +3,17 @@
 --REQUIREMENTS {{{
 local option_status_ok, o = pcall(require, "options")
 if not option_status_ok then
-    return
+	return
 end
 
 local keys_ok, k = pcall(require, "keys")
 if not keys_ok then
-    return
+	return
 end
 --}}}
 
 --OPACITY {{{
-o.opacity(0.9)
+o.opacity(0.8)
 --}}}
 
 --SATURATION, BRIGHTNESS {{{
@@ -23,19 +23,19 @@ o.inactive_pane_hsb(0.9, 0.8)
 --TAB BAR {{{
 --DISPLAY
 o.tab_bar(true)
-o.tab_bar_bottom(false)
+o.tab_bar_bottom(true)
 
---TAB BAR STYLE 
+-- BAR STYLE
 o.tab_bar_style({
-    --tab bar background
-    '#0b0022',
-    --tab bar foreground
-    '#2b2042'
+	--tab bar background
+	"#0b0022",
+	--tab bar foreground
+	"#2b2042",
 })
 --}}}
 
 --COLOR SCHEME {{{
-o.color_scheme('nil')
+o.color_scheme("nil")
 --}}}
 
 --CUSTOM COLOR SCHEME {{{
@@ -62,8 +62,8 @@ o.color_scheme('nil')
 
 --FONT, FONT-FALLBACK{{{
 o.font({
-    'VictorMono Nerd Font',
-    'Symbol Nerd Font'
+	"VictorMono Nerd Font",
+	"Symbol Nerd Font",
 })
 --}}}
 
