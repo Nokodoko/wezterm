@@ -82,7 +82,7 @@ end
 
 o.font = function(font, fallback)
 	o.config.font = wez.font_with_fallback(font, fallback)
-	o.config.font_size = 23
+	o.config.font_size = 18
 end
 
 o.tab_bar_style = function(tbsb, tbsf)

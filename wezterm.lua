@@ -62,8 +62,10 @@ o.color_scheme("nil")
 
 --FONT, FONT-FALLBACK{{{
 o.font({
-	"VictorMono Nerd Font",
-	"Symbol Nerd Font",
+    "VictorMono Nerd Font",
+    "Symbols Nerd Font",
+    "Noto Color Emoji",
+    "Noto Sans CJK JP",
 })
 --}}}
 
@@ -84,6 +86,9 @@ o.scrollback(3000)
 ----TIMEOUT_MILLISECONDS
 --1000
 --)
+
+k.open_url_keybind("u", "CTRL|SHIFT")
+o.config.keys = k.config.keys
 
 return o.config
 --}}}
