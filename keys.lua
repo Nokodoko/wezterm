@@ -41,4 +41,15 @@ k.open_url_keybind = function(key, mods)
     })
 end
 
+k.disable_debug_overlay = function()
+    if not k.config.keys then
+        k.config.keys = {}
+    end
+    table.insert(k.config.keys, {
+        key = "l",
+        mods = "CTRL|SHIFT",
+        action = wez.action.DisableDefaultAssignment,
+    })
+end
+
 return k

@@ -88,6 +88,7 @@ o.scrollback(3000)
 --)
 
 k.open_url_keybind("u", "CTRL|SHIFT")
+k.disable_debug_overlay()
 o.config.keys = k.config.keys
 
 return o.config
