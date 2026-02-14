@@ -89,6 +89,19 @@ o.scrollback(3000)
 
 k.open_url_keybind("u", "CTRL|SHIFT")
 k.disable_debug_overlay()
+
+-- Disable CTRL+SHIFT+SPACE so it passes through to dunst
+k.keybindings({
+    { key = "Space", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+    { key = "LeftArrow", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+    { key = "RightArrow", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+    { key = "UpArrow", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+    { key = "DownArrow", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+    { key = "LeftArrow", mods = "ALT", action = "DisableDefaultAssignment" },
+    { key = "RightArrow", mods = "ALT", action = "DisableDefaultAssignment" },
+    { key = "UpArrow", mods = "ALT", action = "DisableDefaultAssignment" },
+    { key = "DownArrow", mods = "ALT", action = "DisableDefaultAssignment" },
+})
 o.config.keys = k.config.keys
 
 return o.config

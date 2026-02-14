@@ -35,7 +35,7 @@ k.open_url_keybind = function(key, mods)
             patterns = { "https?://[^\\s\"'>]+" },
             action = wez.action_callback(function(window, pane)
                 local url = window:get_selection_text_for_pane(pane)
-                wez.open_with(url, "vivaldi")
+                wez.open_with(url, "vivaldi-stable")
             end),
         },
     })
