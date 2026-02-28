@@ -1,6 +1,8 @@
 -- vim:fileencoding=utf-8:ft=lua:foldmethod=marker
 
 --REQUIREMENTS {{{
+local wezterm = require("wezterm")
+
 local option_status_ok, o = pcall(require, "options")
 if not option_status_ok then
 	return
@@ -10,6 +12,27 @@ local keys_ok, k = pcall(require, "keys")
 if not keys_ok then
 	return
 end
+--}}}
+
+--CMDR-DASHBOARD WINDOW RULE {{{
+-- When wezterm is launched with --class containing "cmdr-dashboard",
+-- force the window to spawn at 200 columns x 55 rows.
+wezterm.on("gui-startup", function(cmd)
+	local found = false
+	for _, arg in ipairs(wezterm.procinfo.argv()) do
+		if arg:match("cmdr%-dashboard") then
+			found = true
+			break
+		end
+	end
+	if found then
+		local spawn = cmd or {}
+		spawn.width = 200
+		spawn.height = 55
+		local tab, pane, window = wezterm.mux.spawn_window(spawn)
+		return
+	end
+end)
 --}}}
 
 --OPACITY {{{
