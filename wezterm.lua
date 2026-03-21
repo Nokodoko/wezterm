@@ -19,10 +19,14 @@ end
 -- force the window to spawn at 200 columns x 55 rows.
 wezterm.on("gui-startup", function(cmd)
 	local found = false
-	for _, arg in ipairs(wezterm.procinfo.argv()) do
-		if arg:match("cmdr%-dashboard") then
-			found = true
-			break
+	local procinfo = wezterm.procinfo or {}
+	local argv_fn = procinfo.argv
+	if argv_fn then
+		for _, arg in ipairs(argv_fn()) do
+			if arg:match("cmdr%-dashboard") then
+				found = true
+				break
+			end
 		end
 	end
 	if found then
