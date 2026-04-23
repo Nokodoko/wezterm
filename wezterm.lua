@@ -39,12 +39,25 @@ wezterm.on("gui-startup", function(cmd)
 end)
 --}}}
 
+--TRUECOLOR / BRIGHTNESS {{{
+-- Advertise wezterm terminfo so apps emit 24-bit color sequences.
+o.term("wezterm")
+-- WebGpu front-end renders colors brighter/more accurately vs default OpenGL.
+o.front_end("WebGpu")
+-- Ensure bold uses bright ANSI palette (matches kitty default).
+o.bold_brightens_ansi_colors("BrightAndBold")
+-- Full-strength foreground (no HSB dimming).
+o.foreground_text_hsb(1.0, 1.0, 1.0)
+--}}}
+
 --OPACITY {{{
-o.opacity(0.8)
+-- Was 0.8 — transparency darkens perceived colors vs kitty/neovide (opaque).
+o.opacity(1.0)
 --}}}
 
 --SATURATION, BRIGHTNESS {{{
-o.inactive_pane_hsb(0.9, 0.8)
+-- Was (0.9, 0.8) — dimmed inactive panes. Full brightness matches other terms.
+o.inactive_pane_hsb(1.0, 1.0)
 --}}}
 
 --TAB BAR {{{
@@ -62,7 +75,6 @@ o.tab_bar_style({
 --}}}
 
 --COLOR SCHEME {{{
-o.color_scheme("nil")
 --}}}
 
 --CUSTOM COLOR SCHEME {{{

@@ -80,6 +80,26 @@ o.default_workspace = function(workspace)
 	o.config.default_workspace = workspace
 end
 
+o.term = function(term)
+	o.config.term = term
+end
+
+o.front_end = function(front_end)
+	o.config.front_end = front_end
+end
+
+o.bold_brightens_ansi_colors = function(value)
+	o.config.bold_brightens_ansi_colors = value
+end
+
+o.foreground_text_hsb = function(hue, saturation, brightness)
+	o.config.foreground_text_hsb = {
+		hue = hue,
+		saturation = saturation,
+		brightness = brightness,
+	}
+end
+
 o.font = function(font, fallback)
 	o.config.font = wez.font_with_fallback(font, fallback)
 	o.config.font_size = 10
