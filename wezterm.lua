@@ -117,17 +117,42 @@ o.scrollback(3000)
 --}}}
 
 --KEYS-- {{{
---k.leader(
-----KEY
---'space',
-----MODS
---'ctrl',
-----TIMEOUT_MILLISECONDS
---1000
---)
+-- ctrl+k is the leader key.
+k.leader(
+--KEY
+'k',
+--MODS
+'CTRL',
+--TIMEOUT_MILLISECONDS
+1000
+)
 
 k.open_url_keybind("u", "CTRL|SHIFT")
 k.disable_debug_overlay()
+
+-- Claude Code slash-command injection.
+-- keybindings.json only accepts a fixed action enum, so slash commands
+-- cannot be bound there. These type the command into the TUI and submit.
+k.keybindings({
+    { key = "c", mods = "LEADER", action = wezterm.action.SendString("/clear\r") },
+    { key = "l", mods = "LEADER", action = wezterm.action.SendString("/cmp\r") },
+    { key = "p", mods = "LEADER", action = wezterm.action.SendString("/gwp\r") },
+    { key = "m", mods = "LEADER", action = wezterm.action.SendString("/gwp --merge\r") },
+})
+
+-- wezterm now owns ctrl+k, so it never reaches the terminal app. These
+-- passthroughs re-emit the raw control bytes so Claude Code's own ctrl+k
+-- chords still work:
+--   \x0b=ctrl+k  \x12=ctrl+r  \x14=ctrl+t  \x02=ctrl+b  \x0f=ctrl+o  \x0c=ctrl+l
+k.keybindings({
+    { key = "r", mods = "LEADER|CTRL", action = wezterm.action.SendString("\x0b\x12") },
+    { key = "t", mods = "LEADER|CTRL", action = wezterm.action.SendString("\x0b\x14") },
+    { key = "b", mods = "LEADER|CTRL", action = wezterm.action.SendString("\x0b\x02") },
+    { key = "o", mods = "LEADER|CTRL", action = wezterm.action.SendString("\x0b\x0f") },
+    { key = "l", mods = "LEADER|CTRL", action = wezterm.action.SendString("\x0b\x0c") },
+    -- ctrl+k ctrl+k emits one literal ctrl+k (recovers zsh kill-line)
+    { key = "k", mods = "LEADER|CTRL", action = wezterm.action.SendString("\x0b") },
+})
 
 -- Disable CTRL+SHIFT+SPACE so it passes through to dunst
 k.keybindings({
@@ -142,6 +167,7 @@ k.keybindings({
     { key = "DownArrow", mods = "ALT", action = "DisableDefaultAssignment" },
 })
 o.config.keys = k.config.keys
+o.config.leader = k.config.leader
 
 return o.config
 --}}}
